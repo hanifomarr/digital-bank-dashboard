@@ -7,6 +7,7 @@ import Footer from "./components/footer/footer";
 import Menu from "./components/menu/menu";
 
 import "./styles/global.scss";
+import Analytic from "./pages/analytic/analytic";
 
 function App() {
   const Layout = () => {
@@ -31,7 +32,8 @@ function App() {
       path: "/",
       element: <Layout />,
       children: [
-        { path: "dashboard", element: <Dashboard /> },
+        { index: true, element: <Dashboard /> },
+        { path: "analytic", element: <Analytic /> },
         { path: "transaction", element: <Transaction /> },
       ],
     },
