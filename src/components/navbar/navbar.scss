@@ -1,0 +1,77 @@
+@use "../../styles/variables" as v;
+
+.navbar {
+  display: flex;
+  padding: 20px;
+  width: 100%;
+  justify-content: space-between;
+  .navlink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+
+    .logo {
+      padding: 10px;
+    }
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    form {
+      position: relative;
+      width: 20rem;
+      background: v.$main-theme;
+      border-radius: 1rem;
+      input,
+      button {
+        height: 2.1rem;
+        border: 0;
+        color: #2f2f2f;
+        font-size: 1rem;
+      }
+      input[type="search"] {
+        width: 100%;
+        background: #fff;
+        padding: 0 1.6rem;
+        border-radius: 0.8rem;
+        appearance: none; //for iOS input[type="search"] roundedness issue. border-radius alone doesn't work
+        transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
+        transition-property: width, border-radius;
+        z-index: 1;
+        position: relative;
+      }
+      button {
+        display: none; // prevent being able to tab to it
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 3rem;
+        font-weight: bold;
+        background: v.$main-theme;
+        border-radius: 0 0.6rem 0.6rem 0;
+      }
+      input:not(:placeholder-shown) {
+        border-radius: 0.6rem 0 0 0.6rem;
+        width: calc(100% - 3rem);
+        + button {
+          display: block;
+        }
+      }
+    }
+
+    button {
+      border-radius: 50px;
+      border: none;
+      background-color: v.$soft-bg;
+      height: 3rem;
+      width: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
